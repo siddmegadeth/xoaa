@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="plugins/winDevice.js"></script>
+    <script type="text/javascript" src="plugins/web3.js-1.x/dist/web3.min.js"></script>
+    <!-- CUSTOM SCRIPT -->
+    <!-- MOBILE UI -->
+    <link rel="stylesheet" type="text/css" href="plugins/mobileui/fonts.css">
+    <link rel="stylesheet" type="text/css" href="plugins/mobileui/style.css">
+    <link rel="stylesheet" type="text/css" href="plugins/mobileui/mobileui-onsen.css">
+    <!-- MOBILE UI ENDS-->
+    <!-- ONSENUI -->
+    <script type="text/javascript" src="plugins/OnsenUI-dist-2.10.10/js/onsenui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="plugins/OnsenUI-dist-2.10.10/css/onsenui.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OnsenUI-dist-2.10.10/css/onsenui-core.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OnsenUI-dist-2.10.10/css/onsenui-fonts.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OnsenUI-dist-2.10.10/css/onsen-css-components.min.css">
+    <!-- ONSENUI ENDS -->
+    <!-- CUSTOM Components CSS -->
+    <link rel="stylesheet" type="text/css" href="components/landing/landing.css">
+    <link rel="stylesheet" type="text/css" href="components/verify/verify.css">
+    <link rel="stylesheet" type="text/css" href="components/login/login.css">
+    <link rel="stylesheet" type="text/css" href="components/global/onsen-overwrite.css">
+    <!-- CUSTOM Components CSS ENDS-->
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Xoaa Assignment</title>
+</head>
+
+<body ng-cloak>
+    <ons-navigator var="myNavigator" page="verify.html" ng-cloak swipeable animation="fade"></ons-navigator>
+    <template id="verify.html" ng-cloak>
+        <ons-page ng-controller="verifyCtrl" ng-cloak>
+        </ons-page>
+    </template>
+    <!-- user-onboard-messages -->
+    <template id="onboarding.html" ng-cloak>
+        <ons-page ng-controller="verifyCtrl" ng-cloak>
+            <div class="swiper-container swiper-container-fullscreen">
+                <div class="swiper-wrapper">
+                    <!-- Add slide 1 -->
+                    <div class="swiper-slide vertical-align-center pink-400">
+                        <i class="icon ion-beer"></i>
+                        <h1>Hello Beer</h1>
+                        <p>The easiest way to order beer from your favorite bar!</p>
+                    </div>
+                    <!-- Add slide 2 -->
+                    <div class="swiper-slide vertical-align-center green-600">
+                        <i class="icon ion-videocamera"></i>
+                        <h1>Movie Tickets</h1>
+                        <p>Book movie tickets for your family and friends!</p>
+                    </div>
+                    <!-- Add slide 3 -->
+                    <div class="swiper-slide vertical-align-center blue">
+                        <i class="icon ion-pricetag"></i>
+                        <h1>Great Discounts</h1>
+                        <p>Best discounts on every single service we offer!</p>
+                        <button class="border-white text-white radius margin-top" ng-click="gotoLogin()">
+                            Login in app now
+                        </button>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+        </ons-page>
+    </template>
+    <!-- Landing -->
+    <template id="landing.html" ng-cloak>
+        <ons-page ng-controller="landingCtrl" ng-cloak>
+            <ons-toolbar>
+                <div class="center">
+                    Ganache BlockChain
+                </div>
+                <div class="left">
+                    <ons-back-button></ons-back-button>
+                </div>
+            </ons-toolbar>
+            <ons-list>
+                <ons-list-item>
+                    <ons-button modifier="large"  ng-click="loadGanache()">Load Ganche Connection</ons-button>
+                </ons-list-item>
+            </ons-list>
+        </ons-page>
+    </template>
+    <!-- Login -->
+    <template id="login.html" ng-cloak>
+        <ons-page ng-controller="loginCtrl" ng-cloak>
+            <ons-toolbar>
+                <div class="center">
+                    Login
+                </div>
+            </ons-toolbar>
+            <div class="list">
+                <div class="item label-fixed">
+                    <label>E-Mail</label>
+                    <input type="text" ng-model="login.email">
+                </div>
+                <div class="item label-fixed">
+                    <label>Password</label>
+                    <input type="password" ng-model="login.password">
+                </div>
+                <div class="item">
+                    <button class="blue radius full" ng-click="performLogin(login)">Login user</button>
+                </div>
+                <div class="item">
+                    <button class="blue radius full" ng-click="signUp()">Sign Up</button>
+                </div>
+            </div>
+        </ons-page>
+    </template>
+    <template id="sign-up.html" ng-cloak>
+        <ons-page ng-controller="loginCtrl" ng-cloak>
+            <ons-toolbar>
+                <div class="center">
+                    User Registration
+                </div>
+            </ons-toolbar>
+            <div class="list">
+                <div class="item label-fixed">
+                    <label>E-Mail</label>
+                    <input type="email" ng-model="register.email">
+                </div>
+                <div class="item label-fixed">
+                    <label>Password</label>
+                    <input type="password" ng-model="register.password">
+                </div>
+                <div class="item label-fixed">
+                    <label>Name</label>
+                    <input type="text" ng-model="register.fullName">
+                </div>
+                <div class="item label-fixed">
+                    <label>Display Name</label>
+                    <input type="text" ng-model="register.display_name">
+                </div>
+                <div class="item">
+                    <button class="blue radius full" ng-click="performRegistration(register)">Register Profile</button>
+                </div>
+            </div>
+        </ons-page>
+    </template>
+</body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="plugins/angular-1.6.9/angular.min.js"></script>
+<!-- ONSEUI -->
+<script type="text/javascript" src="plugins/mobileui/mobileui.js"></script>
+<script type="text/javascript" src="plugins/OnsenUI-dist-2.10.10/js/angular-onsenui.min.js"></script>
+<!-- controller -->
+<script type="text/javascript" src="init.js"></script>
+<script type="text/javascript" src="components/landing/landingCtrl.js"></script>
+<script type="text/javascript" src="components/verify/verifyCtrl.js"></script>
+<script type="text/javascript" src="components/login/loginCtrl.js"></script>
+<!-- Directives -->
+<!-- Services -->
+<script type="text/javascript" src="services/http-core.js"></script>
+<script type="text/javascript" src="services/local.js"></script>
+
+</html>
