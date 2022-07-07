@@ -36,7 +36,7 @@
     "jwt-simple": "^0.4.1",
     "mapbox-geocoding": "^0.1.5",
     "ml5": "^0.3.1",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "mongodb": "^3.1.9",
     "mongoose": "^4.13.17",
     "morgan": "^1.9.0",
