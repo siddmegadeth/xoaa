@@ -31,7 +31,7 @@
     "http2": "^3.3.7",
     "instagram-nodejs-without-api": "^1.2.0",
     "ip": "^1.1.5",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "jsrender": "^1.0.4",
     "jwt-simple": "^0.4.1",
     "mapbox-geocoding": "^0.1.5",
